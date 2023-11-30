@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Al Quran</string>
+
+    <string name="Open_Dawer">Open_Dawer</string>
+
+
+    <string name="Close_dawer">Close_dawer</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+</resources>

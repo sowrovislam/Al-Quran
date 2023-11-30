@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <group
+        android:id="@+id/group1"
+        >
+
+
+        <item
+            android:id="@+id/home"
+            android:title="HOME"
+            android:icon="@drawable/baseline_home_24"
+            android:checkable="true"
+            />
+
+
+
+        <item
+            android:checkable="true"
+            android:id="@+id/alarms"
+            android:title="Alarms"
+            android:icon="@drawable/baseline_access_alarms_24"
+            />
+        <item
+            android:checkable="true"
+            android:id="@+id/update"
+            android:title="Update"
+            android:icon="@drawable/baseline_update_24"
+            />
+        <item
+            android:checkable="true"
+            android:id="@+id/rating"
+            android:title="Rating"
+            android:icon="@drawable/baseline_grade_24"
+            />
+
+
+
+    </group>
+
+
+
+
+
+
+
+    <group
+        android:id="@+id/group2"
+        >
+
+        <item
+            android:checkable="true"
+            android:id="@+id/about"
+            android:icon="@drawable/baseline_info_24"
+            android:title="About"/>
+
+
+
+
+
+
+        <item
+            android:checkable="true"
+            android:id="@+id/policy"
+            android:icon="@drawable/baseline_policy_24"
+            android:title="policy"/>
+
+        <item
+            android:checkable="true"
+            android:id="@+id/exit"
+            android:icon="@drawable/baseline_exit_to_app_24"
+            android:title="Exit"/>
+
+
+
+
+    </group>
+
+
+
+
+
+
+
+
+
+
+</menu>

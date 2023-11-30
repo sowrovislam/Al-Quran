@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <item
+        android:title="sms"
+        android:icon="@drawable/baseline_mark_email_read_24"
+        android:id="@+id/sms"
+        android:checkable="true"
+
+        app:showAsAction="ifRoom"/>
+
+    <item
+
+        android:title="Share"
+        android:checkable="true"
+        android:id="@+id/share"
+        android:icon="@drawable/baseline_share_24"
+        app:showAsAction="ifRoom"/>
+
+
+
+</menu>
