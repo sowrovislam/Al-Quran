@@ -37,7 +37,7 @@
                     android:layout_height="wrap_content"
                     app:layout_anchor="@+id/appBarLayout"
                     app:layout_anchorGravity="center"
-                    app:title="AL Quran"
+                    app:title="Al- Quran"
                     app:titleTextColor="@color/black"
                     app:navigationIcon="@drawable/baseline_menu_24"
                     app:menu="@menu/appbarmenu"

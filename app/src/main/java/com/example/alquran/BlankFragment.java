@@ -1,9 +1,13 @@
 package com.example.alquran;
 
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -16,6 +20,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Random;
 
 public class BlankFragment extends Fragment {
 
@@ -34,14 +39,25 @@ public class BlankFragment extends Fragment {
 
         View myview=inflater.inflate(R.layout.fragment_blank, container, false);
 
-RecyclerView recyclerView;
+             RecyclerView recyclerView;
 
-         recyclerView=myview.findViewById(R.id.recyclerView);
-
-
-MyHasmap();
+           recyclerView=myview.findViewById(R.id.recyclerView);
 
 
+         //           <<<<<<<<<<<<<<<< Hassmap Cal>>>>>>>>>>
+
+
+            MyHasmap();
+
+        //           <<<<<<<<<<<<<<<< Hassmap Cal>>>>>>>>>>
+
+
+
+
+
+
+
+        //           <<<<<<<<<<<<<<<<  MYadapter call Start  >>>>>>>>>>
 
 
 
@@ -50,11 +66,15 @@ MyHasmap();
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
 
-
+        //           <<<<<<<<<<<<<<<<  MYadapte END   >>>>>>>>>>
 
 
         return myview;
     }
+
+
+
+    // >>>>>>>>>>>>>>>>>> RecyclerView  create  Start >>>>>>>>>>>>>>>>>
 
 
 
@@ -64,12 +84,17 @@ MyHasmap();
         private class ViewHoldar extends RecyclerView.ViewHolder{
 
              TextView tittle1,tittle2,tittle3;
+
+             CardView cardView;
             public ViewHoldar(@NonNull View itemView) {
                 super(itemView);
 
                 tittle1=itemView.findViewById(R.id.tittle1);
                 tittle2=itemView.findViewById(R.id.tittle2);
                 tittle3=itemView.findViewById(R.id.tittle3);
+
+                //
+                cardView=itemView.findViewById(R.id.cardview);
 
             }
         }
@@ -90,21 +115,84 @@ MyHasmap();
         @Override
         public void onBindViewHolder(@NonNull ViewHoldar holder, int position) {
 
+
+
             hashMap=arrayList.get(position);
 
             String name=hashMap.get("name");
             String arabic=hashMap.get("arabic");
 
 
+            String dis1=hashMap.get("dis1");
+
+            String dis2=hashMap.get("dis2");
+
+            String dis3=hashMap.get("dis3");
+
+            String dis4=hashMap.get("dis4");
+
+
+
+
+
+
+
+
             holder.tittle1.setText(name);
 
             holder.tittle3.setText(arabic);
 
+            holder.tittle2.setText("" + position);
 
 
 
 
-                holder.tittle2.setText("" + position);
+
+
+            holder.cardView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+
+
+
+
+
+                    // >>>>>>>>>>   Fragment >>>>>>>>>>>>>>>>>>>>>>>>
+
+
+                    Fragment fragment=new BlankFragment();
+                    FragmentManager fragmentManager=getActivity().getSupportFragmentManager();
+                    FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
+                    fragmentTransaction.add(R.id.framlayout,new BlankFragment2());
+                    fragmentTransaction.addToBackStack("fragment");
+                    fragmentTransaction.commit();
+
+                    BlankFragment2.BANGLA=name;
+                    BlankFragment2.ARABIC=arabic;
+
+                    BlankFragment2.NEXTDIS=dis1;
+
+
+                    BlankFragment2.NEXTDIS1=dis2;
+
+                    BlankFragment2.NEXTDIS2=dis3;
+
+                    BlankFragment2.NEXTDIS3=dis4;
+
+
+                    // >>>>>>>>>>   Fragment  END >>>>>>>>>>>>>>>>>>>>>>>>
+
+
+
+
+
+
+
+                }
+            });
+
+
 
 
 
@@ -117,7 +205,7 @@ MyHasmap();
 
 
 
-
+        // >>>>>>>>>>>>>>>>>> RecyclerView  create END >>>>>>>>>>>>>>>>>
 
 
 
@@ -134,7 +222,26 @@ MyHasmap();
         hashMap=new HashMap<>();
         hashMap.put("name","আল ফাতিহা");
         hashMap.put("arabic","الفاتحة");
-        hashMap.put("dis2","");
+        hashMap.put("dis1"," \uFEFFبِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ\n" +
+                "শুরু করছি আল্লাহর নামে যিনি পরম করুণাময়, অতি দয়ালু।\n" +
+                "\n" +
+                "1:2 الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ\n" +
+                "যাবতীয় প্রশংসা আল্লাহ তাআলার যিনি সকল সৃষ্টি জগতের পালনকর্তা।\n" +
+                "\n" +
+                "1:3 الرَّحْمَٰنِ الرَّحِيمِ\n" +
+                "যিনি নিতান্ত মেহেরবান ও দয়ালু।\n" +
+                "\n" +
+                "1:4 مَالِكِ يَوْمِ الدِّينِ\n" +
+                "যিনি বিচার দিনের মালিক।\n" +
+                "\n" +
+                "1:5 إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ\n" +
+                "আমরা একমাত্র তোমারই ইবাদত করি এবং শুধুমাত্র তোমারই সাহায্য প্রার্থনা করি।\n" +
+                "\n" +
+                "1:6 اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ\n" +
+                "আমাদেরকে সরল পথ দেখাও,\n" +
+                "\n" +
+                "1:7 صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ\n" +
+                "সে সমস্ত লোকের পথ, যাদেরকে তুমি নেয়ামত দান করেছ। তাদের পথ নয়, যাদের প্রতি তোমার গজব নাযিল হয়েছে এবং যারা পথভ্রষ্ট হয়েছে।");
 
         arrayList.add(hashMap);
 
@@ -143,7 +250,20 @@ MyHasmap();
         hashMap=new HashMap<>();
         hashMap.put("name","আল বাক্বারাহ্");
         hashMap.put("arabic","البقرة");
-        hashMap.put("dis2","");
+
+
+        hashMap.put("dis1","  1");
+
+
+        hashMap.put("dis2","  ");
+
+        hashMap.put("dis3","  ");
+
+        hashMap.put("dis4"," ");
+
+
+
+
 
         arrayList.add(hashMap);
 
@@ -154,7 +274,18 @@ MyHasmap();
         hashMap=new HashMap<>();
         hashMap.put("name","আল ইমরান");
         hashMap.put("arabic","آل عمران");
-        hashMap.put("dis2","");
+
+        hashMap.put("dis1","  ");
+
+        hashMap.put("dis2","  ");
+
+        hashMap.put("dis3","  ");
+
+        hashMap.put("dis4"," ");
+
+
+
+
 
         arrayList.add(hashMap);
 
@@ -165,6 +296,7 @@ MyHasmap();
         hashMap.put("name","আন-নিসা");
         hashMap.put("arabic","النّساء");
         hashMap.put("dis2","");
+
 
         arrayList.add(hashMap);
 
